@@ -1,0 +1,43 @@
+<table *ngIf="showText">
+    <tr>
+        <th>title</th>
+        <th>rating</th>
+        <th>hasWatched</th>
+    </tr>
+    <tr *ngFor="let movie of movies">
+        <td>{{movie.title}}</td>
+        <td>{{movie.rating}}</td>
+        <td>{{movie.hasWatched}}</td>
+    </tr>
+</table>
+<button type="button" class="btn btn-primary mx-3" (click)="showHideText()">submit</button>
+<div class="dropdown mx-3 mt-3">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+    aria-expanded="false">
+    Movie Data
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li *ngFor="let movie of movies"><a class="dropdown-item" href="#">{{movie.title}}</a></li>
+  </ul>
+</div>
+<div class="dropdown mx-3 mt-3">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+    aria-expanded="false">
+    Country Name
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li *ngFor="let coutry of movieFinalData"><a class="dropdown-item" href="#">{{coutry.text}}</a></li>
+  </ul>
+</div>
+<div class="wrapper mx-3">
+<select class="form-select mt-3" aria-label="Default select example">
+  <option selected>coutry Name</option>
+  <option value="coutry-name" *ngFor="let country of movieFinalData">{{country.text}}</option>
+</select>
+<select class="form-select mt-3" aria-label="Default select example">
+  <option selected>State Name</option>
+  <option value="coutry-states" *ngFor="let country of movieFinalData">{{country.text}}</option>
+</select>
+</div>

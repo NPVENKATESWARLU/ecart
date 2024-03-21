@@ -1,0 +1,19 @@
+<div class="w-100 h-100 d-flex justify-content-center align-items-center">
+    <div class="w-50 form-custom p-3">
+        <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" #localForm="ngForm">
+            <div class="form-group my-2">
+                <label class="form-label"><b>User Name</b></label>
+                <input type="text" class="form-control" name="userName" formControlName="userName"
+                    [class.is-invalid]="localForm.submitted && signInForm.get('userName')?.invalid" />
+                    <div class="invalid-feedback">User name is required</div>
+            </div>
+            <div class="form-group my-2">
+                <label class="form-label"><b>Password</b></label>
+                <input type="Password" class="form-control" formControlName="password" name="password"
+                    [class.is-invalid]="localForm.submitted && signInForm.get('Password')?.invalid" />
+                <div class="invalid-feedback">password is required</div>
+            </div>
+            <button class="btn btn-primary submit">Submit</button>
+        </form>
+    </div>
+</div>
